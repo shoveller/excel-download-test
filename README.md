@@ -4,7 +4,7 @@
 pnpm dev
 ```
 
-## 서버 해설
+## node.js 서버 해설
 - 데이터 생성
     - [exceljs](https://github.com/exceljs/exceljs) 라는 패키지를 사용하면 자바스크립트제 서버에서 엑셀을 생성할 수 있다.
 - 데이터 전송
@@ -14,6 +14,8 @@ pnpm dev
     - `Content-Type` 헤더로 엑셀 데이터라고 명시한다.
     - `Content-Disposition` 헤더로 다운로드 하도록 명시한다.
     - `Access-Control-Expose-Headers` 헤더로 클라이언트가 `Content-Disposition` 헤더를 읽도록 허용한다.
+- 주의사항
+    - node.js 의 시스템 API를 많이 사용하므로 엣지 런타임에서는 그대로 사용할 수 없다.
 ```ts
 import Koa from 'koa';  
 import Router from 'koa-router';  
