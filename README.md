@@ -110,7 +110,6 @@ const getFileName = (contentDisposition: string) => {
 #### fetch 로 api 구현
 - fetch 는 읽는 방법을 따로 지정해야 한다.
 - 엑셀 파일이 스트림 데이터이므로 읽을 때 `async` ~ `await` 구문을 사용해야 한다.
-- 특이하게도 헤더 이름을 소문자로 처리한다.
 ```tsx
 const getExcelFromFetch = async () => {  
   const res = await fetch('/api/convert-csv-to-excel')  
@@ -127,7 +126,7 @@ const getExcelFromFetch = async () => {
 #### axios 로 api 구현
 - axios 는 읽는 방법을 자체 옵션으로 구현해 두었다.
 - 별도의 스트림 처리가 필요하지 않다.
-- 헤더를 소문자로 처리하는 특징이 있다.
+- axios 는 헤더 이름을 소문자로 처리하는 특징이 있다.
 ```tsx
 const getExcelFromAxios = async () => {  
   const res = await axios.get<Blob>('/api/convert-csv-to-excel', {  
